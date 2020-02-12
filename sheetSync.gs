@@ -36,6 +36,9 @@ function syncSheets(sUrl,sK, sV, tK, tV) {
   
   for (var row = 0; row < tValues.length; row++) {
     if (tValues[row][tK_n] in sDict) {
+      if (tValues[row][tK_n] == '' || sDict[tValues[row][tK_n]] == '') {
+        continue;
+      }
       var cell = tSheet.getRange(tV + (row + 1));
       cell.setValue(sDict[tValues[row][tK_n]]);
     }
